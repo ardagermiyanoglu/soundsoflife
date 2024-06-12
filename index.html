@@ -13,7 +13,22 @@
     rel="stylesheet">
   <style>
     body {
-      padding: 20px;
+      background-color: #1c2735;
+    }
+
+    .bg-img {
+      /* The image used */
+      background-image: url("img_nature.jpg");
+
+      min-height: 280px;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      /* Needed to position the navbar */
+      position: relative;
     }
 
     /*     // <uniquifier>: Use a unique and descriptive class name
@@ -101,20 +116,28 @@
 
 <body>
 
+  <div class="jumbotron jumbotron-fluid bg-img">
+    <div class="container" style="background-color: #00000073; color: white; padding-bottom: 20px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;">
+      <h1 class="display-4">soundsof.life</h1>
+      <p class="lead">Nature sounds for your souls.</p>
+    </div>
+    <p style="color: white; float: right; font-size: smaller; margin-top: 110px;">Photo by <a href="https://unsplash.com/@madebyvadim?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Vadim Sherbakov</a> on <a href="https://unsplash.com/photos/green-trees-covering-with-fog-during-daytime-NQSWvyVRIJk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+    </p>
+  </div>
+
   <div class="container px-4 py-5" id="custom-cards">
-    <div style="text-align: center; padding: 20px; border: 1px solid #efefef; border-radius: 15px;">
+    <!-- <div style="text-align: center; padding: 20px; border: 1px solid #efefef; border-radius: 15px;">
       <h2 class="pb-2"><span class="header-bold"">sounds</span><span class=" header-light"">of</span><span
           id="life">.life</span></h2>
       <p id="slogan">Nature sounds for your souls. </p>
       <p><small><a href="/donate">Donate</a></small> <span class="text-danger">♥</span></p>
-    </div>
+    </div> -->
 
 
     <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
 
       <div class="col">
-        <div class="card card-cover h-100 overflow-hidden rounded-4 shadow-lg"
-          style="background-color:#4682B4;">
+        <div class="card card-cover h-100 overflow-hidden rounded-4 shadow-lg" style="background-color:#3c5781;">
           <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
             <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold noto-sans-font">Waves</h3>
 
@@ -129,12 +152,11 @@
               <p>% <span id="waves"></span></p>
             </div>
           </div>
-        </div>        
+        </div>
       </div>
 
       <div class="col">
-        <div class="card card-cover h-100 overflow-hidden rounded-4 shadow-lg"
-          style="background-color:#2E8B57;">
+        <div class="card card-cover h-100 overflow-hidden rounded-4 shadow-lg" style="background-color:#2E8B57;">
           <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
             <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold noto-sans-font">Wind</h3>
 
@@ -149,7 +171,26 @@
               <p>% <span id="wind"></span></p>
             </div>
           </div>
-        </div>        
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden rounded-4 shadow-lg" style="background-color:#89919b;">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold noto-sans-font">Rain</h3>
+
+            <audio controls id="rain-audio-component" style="display: none;" loop>
+              <source src="main-rain.mp4" type="audio/ogg">
+              <source src="main-rain.mp4" type="audio/mpeg">
+              Your browser does not support the audio tag.
+            </audio>
+
+            <div class="slidecontainer">
+              <input type="range" min="0" max="1" step="0.1" value="0" class="slider" id="myRangeRain">
+              <p>% <span id="rain"></span></p>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -185,6 +226,20 @@
       wiac.volume = this.value;
       if (this.value == 0.0) {
         wiac.pause();
+      }
+    }
+
+    var sliderRain = document.getElementById("myRangeRain");
+    var outputrain = document.getElementById("rain");
+    outputrain.innerHTML = sliderRain.value;
+
+    sliderRain.oninput = function () {
+      outputrain.innerHTML = this.value * 100;
+      var rac = document.getElementById("rain-audio-component");
+      rac.play();
+      rac.volume = this.value;
+      if (this.value == 0.0) {
+        rac.pause();
       }
     }
   </script>
