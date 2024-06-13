@@ -13,7 +13,7 @@
     rel="stylesheet">
   <style>
     body {
-      background-color: #1c2735;
+      background-color: #000000;
     }
 
     .bg-img {
@@ -29,6 +29,7 @@
 
       /* Needed to position the navbar */
       position: relative;
+      border-bottom: 2px solid green;
     }
 
     /*     // <uniquifier>: Use a unique and descriptive class name
@@ -73,6 +74,7 @@
 
     .slidecontainer {
       width: 100%;
+      color: white;
       font-family: "Noto Sans", sans-serif;
       font-optical-sizing: auto;
       font-weight: bold;
@@ -81,11 +83,11 @@
     }
 
     .slider {
+      margin-bottom: 25px;
       -webkit-appearance: none;
       width: 100%;
-      height: 25px;
-      background: rgb(0 0 0 / 50%);
-      ;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.5);
       outline: none;
       opacity: 0.7;
       -webkit-transition: .2s;
@@ -129,7 +131,7 @@
 
   <div class="jumbotron jumbotron-fluid bg-img">
     <div class="container"
-      style="background-color: #00000073; color: white; padding-bottom: 20px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;">
+      style="background-color: #00000073; color: white; padding-bottom: 20px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; text-align: center;">
       <h1 class="display-4">soundsof.life</h1>
       <p class="lead">Nature sounds for your souls.</p>
     </div>
@@ -141,93 +143,71 @@
     </p>
   </div>
 
-  <div class="container px-4 py-5" id="custom-cards">
-    <!-- <div style="text-align: center; padding: 20px; border: 1px solid #efefef; border-radius: 15px;">
-      <h2 class="pb-2"><span class="header-bold"">sounds</span><span class=" header-light"">of</span><span
-          id="life">.life</span></h2>
-      <p id="slogan">Nature sounds for your souls. </p>
-      <p><small><a href="/donate">Donate</a></small> <span class="text-danger">♥</span></p>
-    </div> -->
+  <div class="container px-4 py-5" id="custom-cards" style="background-color: #263344;">
 
+    <div class="row row-cols-2 align-items-stretch g-4 py-5">
 
-    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden rounded-4 shadow-lg" style="background-color:#3c5781;">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold noto-sans-font">Waves</h3>
-
-            <audio controls id="waves-audio-component" style="display: none;" loop>
-              <source src="main-waves.mp4" type="audio/ogg">
-              <source src="main-waves.mp4" type="audio/mpeg">
-              Your browser does not support the audio tag.
-            </audio>
-
-            <div class="slidecontainer">
-              <input type="range" min="0" max="1" step="0.1" value="0" class="slider" id="myRange">
-              <p>% <span id="waves"></span></p>
-            </div>
+      <div class="row" style="padding: 20px;">
+        <div style="background-color: #00000073; padding-top: 10px;">
+          <audio controls id="waves-audio-component" style="display: none;" loop>
+            <source src="main-waves.mp4" type="audio/ogg">
+            <source src="main-waves.mp4" type="audio/mpeg">
+            Your browser does not support the audio tag.
+          </audio>
+          <h3 class="noto-sans-font" style="color: white;">Waves</h3>
+          <div class="slidecontainer">
+            <input type="range" min="0" max="1" step="0.1" value="0" class="slider" id="myRange">
+            <p>% <span id="waves"></span></p>
           </div>
         </div>
       </div>
 
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden rounded-4 shadow-lg" style="background-color:#2E8B57;">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold noto-sans-font">Wind</h3>
-
-            <audio controls id="wind-audio-component" style="display: none;" loop>
-              <source src="main-wind.mp4" type="audio/ogg">
-              <source src="main-wind.mp4" type="audio/mpeg">
-              Your browser does not support the audio tag.
-            </audio>
-
-            <div class="slidecontainer">
-              <input type="range" min="0" max="1" step="0.1" value="0" class="slider" id="myRangeWind">
-              <p>% <span id="wind"></span></p>
-            </div>
+      <div class="row" style="padding: 20px;">
+        <div style="background-color: #00000073; padding-top: 10px;">
+          <h3 class="noto-sans-font" style="color: white;">Wind</h3>
+          <audio controls id="wind-audio-component" style="display: none;" loop>
+            <source src="main-wind.mp4" type="audio/ogg">
+            <source src="main-wind.mp4" type="audio/mpeg">
+            Your browser does not support the audio tag.
+          </audio>
+          <div class="slidecontainer">
+            <input type="range" min="0" max="1" step="0.1" value="0" class="slider" id="myRangeWind">
+            <p>% <span id="wind"></span></p>
           </div>
         </div>
       </div>
 
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden rounded-4 shadow-lg" style="background-color:#89919b;">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold noto-sans-font">Rain</h3>
-
-            <audio controls id="rain-audio-component" style="display: none;" loop>
-              <source src="main-rain.mp4" type="audio/ogg">
-              <source src="main-rain.mp4" type="audio/mpeg">
-              Your browser does not support the audio tag.
-            </audio>
-
-            <div class="slidecontainer">
-              <input type="range" min="0" max="1" step="0.1" value="0" class="slider" id="myRangeRain">
-              <p>% <span id="rain"></span></p>
-            </div>
+      <div class="row" style="padding: 20px;">
+        <div style="background-color: #00000073; padding-top: 10px;">
+          <h3 class="noto-sans-font" style="color: white;">Rain</h3>
+          <audio controls id="rain-audio-component" style="display: none;" loop>
+            <source src="main-rain.mp4" type="audio/ogg">
+            <source src="main-rain.mp4" type="audio/mpeg">
+            Your browser does not support the audio tag.
+          </audio>
+          <div class="slidecontainer">
+            <input type="range" min="0" max="1" step="0.1" value="0" class="slider" id="myRangeRain">
+            <p>% <span id="rain"></span></p>
           </div>
         </div>
       </div>
 
-      <div class="col">
-        <div class="card card-cover h-100 overflow-hidden rounded-4 shadow-lg" style="background-color:#89919b;">
-          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold noto-sans-font">Birds</h3>
-
-            <audio controls id="birds-audio-component" style="display: none;" loop>
-              <source src="main-birds.mp4" type="audio/ogg">
-              <source src="main-birds.mp4" type="audio/mpeg">
-              Your browser does not support the audio tag.
-            </audio>
-
-            <div class="slidecontainer">
-              <input type="range" min="0" max="1" step="0.1" value="0" class="slider" id="myRangeBirds">
-              <p>% <span id="birds"></span></p>
-            </div>
+      <div class="row" style="padding: 20px;">
+        <div style="background-color: #00000073; padding-top: 10px;">
+          <h3 class="noto-sans-font" style="color: white;">Birds</h3>
+          <audio controls id="birds-audio-component" style="display: none;" loop>
+            <source src="main-birds.mp4" type="audio/ogg">
+            <source src="main-birds.mp4" type="audio/mpeg">
+            Your browser does not support the audio tag.
+          </audio>
+          <div class="slidecontainer">
+            <input type="range" min="0" max="1" step="0.1" value="0" class="slider" id="myRangeBirds">
+            <p>% <span id="birds"></span></p>
           </div>
         </div>
       </div>
-
+      <div class="row"><p style="color: white;">arda (at) ardagermiyanoglu (dot) net</p></div>
+      
     </div>
   </div>
 
